@@ -64,7 +64,7 @@ The infrastructure follows a classic **three-tier VPC architecture** split acros
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │              VPC  (10.0.0.0/16)                      │  │
 │  │                                                      │  │
-│  │  ┌───────────────────┐  ┌───────────────────────┐   │  │
+│  │  ┌───────────────────┐  ┌───────────────────────┐    │  │
 │  │  │  Public Subnet    │  │   Public Subnet        │   │  │
 │  │  │  10.0.1.0/24      │  │   10.0.2.0/24          │   │  │
 │  │  │  (us-east-1a)     │  │   (us-east-1b)         │   │  │
@@ -73,8 +73,8 @@ The infrastructure follows a classic **three-tier VPC architecture** split acros
 │  │  │  │  t3.micro   │  │  │                        │   │  │
 │  │  │  └─────────────┘  │  │                        │   │  │
 │  │  └────────┬──────────┘  └────────────────────────┘   │  │
-│  │           │  Internet Gateway                         │  │
-│  │  ┌────────┴──────────┐  ┌───────────────────────┐   │  │
+│  │           │  Internet Gateway                        │  │
+│  │  ┌────────┴──────────┐  ┌───────────────────────┐    │  │
 │  │  │  Private Subnet   │  │   Private Subnet       │   │  │
 │  │  │  10.0.10.0/24     │  │   10.0.20.0/24         │   │  │
 │  │  │  (us-east-1a)     │  │   (us-east-1b)         │   │  │
@@ -92,12 +92,12 @@ The infrastructure follows a classic **three-tier VPC architecture** split acros
 
 ### Network Layout
 
-| Subnet | CIDR | Availability Zone | Purpose |
-|---|---|---|---|
+| Subnet          | CIDR          | Availability Zone| Purpose |
+
 | Public Subnet A | `10.0.1.0/24` | `us-east-1a` | EC2, Internet-facing workloads |
 | Public Subnet B | `10.0.2.0/24` | `us-east-1b` | Spare / ALB (future) |
-| Private Subnet A | `10.0.10.0/24` | `us-east-1a` | RDS, app servers |
-| Private Subnet B | `10.0.20.0/24` | `us-east-1b` | RDS Multi-AZ standby |
+| Private Subnet A| `10.0.10.0/24`| `us-east-1a` | RDS, app servers |
+| Private Subnet B| `10.0.20.0/24`| `us-east-1b` | RDS Multi-AZ standby |
 
 ---
 

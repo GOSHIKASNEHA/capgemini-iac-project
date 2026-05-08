@@ -633,7 +633,7 @@ Planned enhancements for staging and production environments:
 
 <div align="center">
 
-*Built with ❤️ using Terraform, AWS, and OPA*  
+*Built using Terraform, AWS, and OPA*  
 *Capgemini IaC Project — 2026*
 
 </div>

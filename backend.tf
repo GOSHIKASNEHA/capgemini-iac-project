@@ -50,6 +50,10 @@ terraform {
 
     key = "dev/capgemini/terraform.tfstate"
     dynamodb_table = "terraform-locks"
+    bucket = "capgemini-terraform-state-sneha"
+    region = "ap-south-1"
+    encrypt = true
+
 
   }
 }
@@ -59,8 +63,7 @@ terraform {
     # The S3 bucket where the state file is stored. This bucket must already
     # exist — Terraform does NOT create it. Use a naming convention that
     # includes the region to avoid global name collisions.
-    bucket = "capgemini-terraform-state-sneha"
-
+   
     # ── State File Path ──────────────────────────────────────────────────────
     # The object key (file path) inside the bucket. Using a structured path
     # like "env/project/terraform.tfstate" allows multiple projects and
@@ -77,13 +80,13 @@ terraform {
     # differ from the region where your infrastructure is deployed. Using
     # ap-south-1 (Mumbai) keeps state data within the Indian region for
     # data residency compliance.
-    region = "ap-south-1"
+    
 
     # ── Encryption ───────────────────────────────────────────────────────────
     # Encrypts the state file at rest using server-side encryption. The state
     # file contains ALL resource attributes, including sensitive values like
     # database passwords and private IPs. Encryption is non-negotiable.
-    encrypt = true
+    
 
     # ── DynamoDB State Locking ───────────────────────────────────────────────
     # The DynamoDB table used for state locking and consistency checking.
